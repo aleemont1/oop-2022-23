@@ -1,7 +1,6 @@
 package it.unibo.arrays;
 
 import java.util.Arrays;
-import java.util.Collection;
 
 class WorkWithArrays {
 
@@ -206,7 +205,7 @@ class WorkWithArrays {
         }
         return pos;
     }
-    
+
     private static int[] selectionSort(final int[] array){
         final int[] sortedArray = array.clone();
         for(int i = 0; i < sortedArray.length - 1; i++) {

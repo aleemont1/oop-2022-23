@@ -7,9 +7,10 @@ class SeqRecognizer {
      */
     static boolean checkSeq1(final int[] array) {
         int i = 0;
-        for (; i < array.length && array[i] == 1; i++);
-        for (; i < array.length && (array[i] == 2 || array[i] == 3); i++);
-        return i == array.length;
+        int SIZE = array.length;
+        for (; i < SIZE && array[i] == 1; i++);
+        for (; i < SIZE && (array[i] == 2 || array[i] == 3); i++);
+        return i == SIZE;
     }
 
     /*
@@ -17,9 +18,10 @@ class SeqRecognizer {
      */
     static boolean checkSeq2(final int[] array) {
         int i = 0;
-        for(; i < array.length-1 && array[i] != 1; i++);
-        for(i++; i < array.length-1 && (array[i] == 2); i++);
-        if(i == array.length)
+        int SIZE = array.length;
+        for(; i < SIZE-1 && array[i] != 1; i++);
+        for(i++; i < SIZE-1 && (array[i] == 2); i++);
+        if(i == SIZE)
             return false;
         return array[i] == 3;
     }
@@ -29,19 +31,32 @@ class SeqRecognizer {
      */
     static boolean checkSeq3(final int[] array) {
         int i = 0;
-        if(checkSeq2(array)) {
-            for( ; i < array.length && array[i] == 4; i++);
-        }
-        if(i == array.length-1)
-            return array[i+1] == 5;
-        return i == array.length;
+        int SIZE = array.length; 
+        for(; i < SIZE-1 && array[i] != 1; i++);
+        for(i++; i < SIZE-1 && (array[i] == 2); i++);
+        if(i == SIZE)
+            return false;
+        if(array[i] != 3)
+            return false;
+        for(i++; i < SIZE-1 && (array[i] == 4); i++);
+        if(i == SIZE-1)
+            return array[i] == 5;
+        if(i == SIZE)
+            return true;    
+        return false;
     }
 
     /*
      * Recognizes: [2|3]{4}5.
      */
     static boolean checkSeq4(final int[] array) {
-        return false;
+        int i = 0;
+        int SIZE = array.length;
+        for(; i < SIZE -1 && (array[i] == 2 || array[i] == 3); i++);
+        for(; i < SIZE-1 && (array[i] == 4); i++);
+        if(i == SIZE)
+            return false;
+        return array[i] == 5;
     }
 
     /** Testing methods **/
