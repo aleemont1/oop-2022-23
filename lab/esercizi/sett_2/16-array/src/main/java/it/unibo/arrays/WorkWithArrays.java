@@ -72,9 +72,30 @@ class WorkWithArrays {
     }
 
     static int[] revertUpTo(final int[] array, final int element) {
-        return null;
+        final int SIZE = array.length;
+        int EL_POS = findElementPosition(array, element);
+        int [] reverted = new int[SIZE];
+        int j = EL_POS;
+        for(; j >= 0; j--) {
+            reverted[EL_POS-j] = array[j];
+        }
+        
+        for(j = EL_POS+1; j < SIZE; j++) {
+            reverted[j] = array[j];
+        }
+        return reverted;
     }
 
+    static int findElementPosition(final int[] array, final int element){
+        int pos = -1;
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == element) {
+                pos = i;
+                break;
+            }
+        }
+        return pos;
+    }
     static int[] duplicateElements(final int[] array, final int times) {
         final int[] returnValue = new int[array.length * times];
         for (int i = 0; i < array.length; i++) {
