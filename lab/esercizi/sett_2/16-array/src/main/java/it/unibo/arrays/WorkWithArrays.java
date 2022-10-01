@@ -53,11 +53,11 @@ class WorkWithArrays {
     }
 
     static int[] sortArray(final int[] array, final boolean isDescending) {
-        Arrays.sort(array);
-        if (isDescending) {
-            reverse(array);
+        final int[] sortedArray = selectionSort(array);
+        if(isDescending) {
+            reverse(sortedArray);
         }
-        return array;
+        return sortedArray;
     }
 
     static double computeVariance(final int[] array) {
@@ -86,16 +86,6 @@ class WorkWithArrays {
         return reverted;
     }
 
-    static int findElementPosition(final int[] array, final int element){
-        int pos = -1;
-        for(int i = 0; i < array.length; i++) {
-            if(array[i] == element) {
-                pos = i;
-                break;
-            }
-        }
-        return pos;
-    }
     static int[] duplicateElements(final int[] array, final int times) {
         final int[] returnValue = new int[array.length * times];
         for (int i = 0; i < array.length; i++) {
@@ -196,7 +186,7 @@ class WorkWithArrays {
         return avg;
     }
 
-    static void reverse(final int[] array){
+    private static void reverse(final int[] array){
         int size = array.length;
         int temp;
         for (int i = 0; i < size / 2; i++) { 
@@ -204,6 +194,33 @@ class WorkWithArrays {
             array[i] = array[size - i - 1]; 
             array[size - i - 1] = temp; 
         } 
+    }
+
+    static int findElementPosition(final int[] array, final int element){
+        int pos = -1;
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == element) {
+                pos = i;
+                break;
+            }
+        }
+        return pos;
+    }
+    
+    private static int[] selectionSort(final int[] array){
+        final int[] sortedArray = array.clone();
+        for(int i = 0; i < sortedArray.length - 1; i++) {
+            int min = i;
+            for(int j = i + 1; j < sortedArray.length; j++) {
+                if(sortedArray[j] < sortedArray[min]) {
+                    min = j;
+                }
+            }
+            int temp = sortedArray[i];
+            sortedArray[i] = sortedArray[min];
+            sortedArray[min] = temp;
+        }
+        return sortedArray;
     }
     public static void main(final String[] args) {
         System.out.println("testCountOccurr: " + testCountOccurrencies());
