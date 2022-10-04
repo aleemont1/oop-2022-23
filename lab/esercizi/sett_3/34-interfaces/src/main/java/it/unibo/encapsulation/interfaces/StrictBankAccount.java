@@ -1,6 +1,6 @@
 package it.unibo.encapsulation.interfaces;
 
-class StrictBankAccount implements BankAccount{
+class StrictBankAccount implements BankAccount {
     private final int id;
     private double balance;
     private int transactions;

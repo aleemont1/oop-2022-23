@@ -31,7 +31,7 @@ public class Calculator {
     public void setlastResult(final double res) {
         this.lastResult = res;
     }
-    
+
     public double add(final double n1, final double n2) {
         return updateStatus(n1 + n2);
     }

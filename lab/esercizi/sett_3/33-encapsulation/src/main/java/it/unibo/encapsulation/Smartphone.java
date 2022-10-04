@@ -19,15 +19,14 @@ public class Smartphone {
     public final boolean hasNFC;
 
     public Smartphone(
-        final int cpuCount,
-        final int ram,
-        final int sdSize,
-        final String brand,
-        final String model,
-        final boolean hasGPS,
-        final boolean has3G,
-        final boolean hasNFC
-    ) {
+            final int cpuCount,
+            final int ram,
+            final int sdSize,
+            final String brand,
+            final String model,
+            final boolean hasGPS,
+            final boolean has3G,
+            final boolean hasNFC) {
         this.cpuCount = cpuCount;
         this.ram = ram;
         this.sdSize = sdSize;
@@ -58,28 +57,34 @@ public class Smartphone {
         return brand;
     }
 
-    public String getModel() {  
+    public String getModel() {
         return model;
     }
+
     public boolean hasGPS() {
         return hasGPS;
     }
+
     public boolean has3G() {
         return has3G;
     }
+
     public boolean hasNFC() {
         return hasNFC;
     }
+
     public int getCpuCount() {
         return cpuCount;
     }
+
     public int getRam() {
         return ram;
     }
+
     public int getSdSize() {
         return sdSize;
     }
-    
+
     public void printStringRep() {
         System.out.println("n CPU(s): " + cpuCount);
         System.out.println("RAM amount: " + ram);

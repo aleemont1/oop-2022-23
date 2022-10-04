@@ -10,8 +10,8 @@ public class Testing {
         Student student3 = new Student(3, "Giuseppe", "Verdi", "password", 2022);
 
         // 2)Creare 2 docenti a piacere
-        Professor prof1 = new Professor(1, "Mirko", "Viroli", "password", new String[]{"OOP", "OOP-2"});
-        Professor prof2 = new Professor(2, "Vittorio", "Ghini", "password", new String[]{"Sistemi Operativi"});
+        Professor prof1 = new Professor(1, "Mirko", "Viroli", "password", new String[] { "OOP", "OOP-2" });
+        Professor prof2 = new Professor(2, "Vittorio", "Ghini", "password", new String[] { "Sistemi Operativi" });
         // 3) Creare due aulee di esame, una con 100 posti una con 80 posti
         ExamRoom room1 = new ExamRoom(100, "Aula 1", true, true);
         ExamRoom room2 = new ExamRoom(80, "Aula 2", false, false);
@@ -26,7 +26,7 @@ public class Testing {
         exam2.registerStudent(student1);
         exam2.registerStudent(student2);
         exam2.registerStudent(student3);
-        
+
         // 6) Stampare in stdout la rapresentazione in stringa dei due esami
         System.out.println(exam1.toString());
         System.out.println(exam2.toString());

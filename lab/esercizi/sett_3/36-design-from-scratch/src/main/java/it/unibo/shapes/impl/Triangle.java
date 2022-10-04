@@ -5,29 +5,29 @@ public class Triangle implements it.unibo.shapes.api.Polygon {
     private final double height;
     private final int edgeCount;
 
-    public Triangle(final double base, final double height){
+    public Triangle(final double base, final double height) {
         this.base = base;
         this.height = height;
         this.edgeCount = 3;
     }
 
-    public double getBase(){
+    public double getBase() {
         return base;
     }
 
-    public double getHeight(){
+    public double getHeight() {
         return height;
     }
 
-    public int getEdgeCount(){
+    public int getEdgeCount() {
         return edgeCount;
     }
 
-    public double getArea(){
+    public double getArea() {
         return base * height / 2;
     }
 
-    public double getPerimeter(){
+    public double getPerimeter() {
         return base + 2 * Math.sqrt(base * base / 4 + height * height);
     }
 }

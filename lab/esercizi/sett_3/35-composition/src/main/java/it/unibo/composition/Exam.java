@@ -10,7 +10,7 @@ class Exam {
     private Student[] students;
 
     public Exam(final int id, int maxStudents, String courseName, Professor professor,
-                ExamRoom room, Student[] students) {
+            ExamRoom room, Student[] students) {
         this.id = id;
         this.maxStudents = maxStudents;
         this.registeredStudents = 0;
@@ -36,7 +36,7 @@ class Exam {
         return this.courseName;
     }
 
-    public Professor getProfessor(){
+    public Professor getProfessor() {
         return this.professor;
     }
 
@@ -48,13 +48,14 @@ class Exam {
         return this.students;
     }
 
-    public void registerStudent(Student student){
-        if(this.registeredStudents < this.maxStudents){
+    public void registerStudent(Student student) {
+        if (this.registeredStudents < this.maxStudents) {
             this.students[this.registeredStudents] = student;
             this.registeredStudents++;
         }
     }
-    public String toString(){
+
+    public String toString() {
         return "Exam " + this.id + " of " + this.courseName + " with professor " + this.professor.getUsername();
     }
 }

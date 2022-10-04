@@ -10,9 +10,9 @@ public class TestSimpleBankAccount {
 
     public static void main(final String[] args) {
         // 1) Creare l' AccountHolder relativo a Andrea Rossi con id 1
-        final AccountHolder andrea = new AccountHolder("Andrea","Rossi",1);
+        final AccountHolder andrea = new AccountHolder("Andrea", "Rossi", 1);
         // 2) Creare l' AccountHolder relativo a Alex Bianchi con id 2
-        final AccountHolder alex = new AccountHolder("Alex", "Bianchi",2);
+        final AccountHolder alex = new AccountHolder("Alex", "Bianchi", 2);
         // 3) Creare i due SimpleBankAccount corrispondenti
         final SimpleBankAccount andreaAccount = new SimpleBankAccount(andrea.getUserID(), 100);
         final SimpleBankAccount alexAccount = new SimpleBankAccount(alex.getUserID(), 100);
@@ -28,7 +28,6 @@ public class TestSimpleBankAccount {
          */
         System.out.println("Andrea's account: " + andreaAccount.getBalance());
         System.out.println("Alex's account: " + alexAccount.getBalance());
-
 
         // 6) Provare a prelevare fornendo un id utente sbagliato
         andreaAccount.withdraw(3, 50);

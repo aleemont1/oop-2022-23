@@ -4,24 +4,24 @@ public class Square implements it.unibo.shapes.api.Polygon {
     private final double side;
     private final int edgeCount;
 
-    public Square(final double side){
+    public Square(final double side) {
         this.side = side;
         this.edgeCount = 4;
     }
 
-    public double getSide(){
+    public double getSide() {
         return side;
     }
 
-    public int getEdgeCount(){
+    public int getEdgeCount() {
         return edgeCount;
     }
 
-    public double getArea(){
+    public double getArea() {
         return side * side;
     }
 
-    public double getPerimeter(){
+    public double getPerimeter() {
         return 4 * side;
     }
 }
