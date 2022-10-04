@@ -2,7 +2,7 @@ package it.unibo.arrays;
 
 import java.util.Arrays;
 
-class WorkWithArrays {
+public class WorkWithArrays {
 
     static int countOccurrencies(final int[] array, final int element) {
         int occurrencies = 0;

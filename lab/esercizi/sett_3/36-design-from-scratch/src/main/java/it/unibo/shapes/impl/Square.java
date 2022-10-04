@@ -10,18 +10,18 @@ public class Square implements it.unibo.shapes.api.Polygon {
     }
 
     public double getSide() {
-        return side;
+        return this.side;
     }
 
     public int getEdgeCount() {
-        return edgeCount;
+        return this.edgeCount;
     }
 
     public double getArea() {
-        return side * side;
+        return this.side * this.side;
     }
 
     public double getPerimeter() {
-        return 4 * side;
+        return 4 * this.side;
     }
 }

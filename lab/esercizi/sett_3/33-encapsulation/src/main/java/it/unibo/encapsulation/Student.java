@@ -15,19 +15,19 @@ public class Student {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getSurname() {
-        return surname;
+        return this.surname;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public int getMatriculationYear() {
-        return matriculationYear;
+        return this.matriculationYear;
     }
 
     public void printStudentInfo() {

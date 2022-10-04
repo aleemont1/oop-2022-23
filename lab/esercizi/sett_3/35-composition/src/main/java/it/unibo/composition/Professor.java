@@ -1,6 +1,6 @@
 package it.unibo.composition;
 
-class Professor implements User {
+public class Professor implements User {
     private final int id;
     private final String name;
     private final String surname;

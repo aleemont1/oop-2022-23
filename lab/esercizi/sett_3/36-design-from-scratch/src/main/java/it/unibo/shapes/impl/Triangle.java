@@ -12,22 +12,22 @@ public class Triangle implements it.unibo.shapes.api.Polygon {
     }
 
     public double getBase() {
-        return base;
+        return this.base;
     }
 
     public double getHeight() {
-        return height;
+        return this.height;
     }
 
     public int getEdgeCount() {
-        return edgeCount;
+        return this.edgeCount;
     }
 
     public double getArea() {
-        return base * height / 2;
+        return this.base * this.height / 2;
     }
 
     public double getPerimeter() {
-        return base + 2 * Math.sqrt(base * base / 4 + height * height);
+        return this.base + 2 * Math.sqrt(this.base * this.base / 4 + this.height * this.height);
     }
 }

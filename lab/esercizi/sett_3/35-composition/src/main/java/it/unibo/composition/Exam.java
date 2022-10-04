@@ -1,6 +1,6 @@
 package it.unibo.composition;
 
-class Exam {
+public class Exam {
     private final int id;
     private int maxStudents;
     private int registeredStudents;

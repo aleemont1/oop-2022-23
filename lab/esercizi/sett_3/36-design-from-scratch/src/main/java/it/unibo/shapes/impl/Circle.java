@@ -8,15 +8,15 @@ public class Circle implements it.unibo.shapes.api.Shape {
     }
 
     public double getRadius() {
-        return radius;
+        return this.radius;
     }
 
     public double getArea() {
-        return Math.PI * radius * radius;
+        return Math.PI * this.radius * this.radius;
     }
 
     public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        return 2 * Math.PI * this.radius;
     }
 
 }

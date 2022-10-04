@@ -12,22 +12,22 @@ public class Rectangle implements it.unibo.shapes.api.Polygon {
     }
 
     public double getWidth() {
-        return width;
+        return this.width;
     }
 
     public double getHeight() {
-        return height;
+        return this.height;
     }
 
     public int getEdgeCount() {
-        return edgeCount;
+        return this.edgeCount;
     }
 
     public double getArea() {
-        return width * height;
+        return this.width * this.height;
     }
 
     public double getPerimeter() {
-        return 2 * (width + height);
+        return 2 * (this.width + this.height);
     }
 }
