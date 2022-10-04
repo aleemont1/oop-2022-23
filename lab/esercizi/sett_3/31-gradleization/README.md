@@ -5,7 +5,7 @@ Follow the steps below:
 
 1. Adhere to the *convention*, in order to avoid as much configuration as possibile, by moving all sources in `src/main/java/`
 2. Set up the Gradle wrapper, to avoid custom Gradle installation and select a specific Gradle version.
-    1. Download a copy of the wrapper, for instance from https://github.com/DanySK/gradle-wrapper/archive/refs/heads/master.zip
+    1. Download a copy of the wrapper, for instance from <https://github.com/DanySK/gradle-wrapper/archive/refs/heads/master.zip>
     2. decompress the archive
     3. move the relevant files into the project root:
         - `gradlew`

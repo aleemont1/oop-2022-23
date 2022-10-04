@@ -1,7 +1,6 @@
 *.pdf
 *.class
 *.code-workspace
-gradlew*
 .gradle
 **/build/
 !src/**/build/
