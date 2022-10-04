@@ -18,6 +18,5 @@ public class WorkWithShapes {
         System.out.println("Triangle perimeter: " + t.getPerimeter());
         System.out.println("Circle area: " + c.getArea());
         System.out.println("Circle perimeter: " + c.getPerimeter());
-
     }
 }
