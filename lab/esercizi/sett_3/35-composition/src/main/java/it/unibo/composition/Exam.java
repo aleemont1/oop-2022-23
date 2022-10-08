@@ -1,5 +1,7 @@
 package it.unibo.composition;
 
+import java.util.Arrays;
+
 public class Exam {
     private final int id;
     private int maxStudents;
@@ -45,7 +47,7 @@ public class Exam {
     }
 
     public Student[] getStudents() {
-        return this.students;
+        return Arrays.copyOf(this.students, this.students.length);
     }
 
     public void registerStudent(Student student) {

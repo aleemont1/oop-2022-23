@@ -2,11 +2,10 @@ package it.unibo.shapes.impl;
 
 public class Square implements it.unibo.shapes.api.Polygon {
     private final double side;
-    private final int edgeCount;
+    private static final int EDGES = 4;
 
     public Square(final double side) {
         this.side = side;
-        this.edgeCount = 4;
     }
 
     public double getSide() {
@@ -14,7 +13,7 @@ public class Square implements it.unibo.shapes.api.Polygon {
     }
 
     public int getEdgeCount() {
-        return this.edgeCount;
+        return this.EDGES;
     }
 
     public double getArea() {

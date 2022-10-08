@@ -3,12 +3,11 @@ package it.unibo.shapes.impl;
 public class Rectangle implements it.unibo.shapes.api.Polygon {
     private final double width;
     private final double height;
-    private final int edgeCount;
+    private final int EDGES = 4;
 
     public Rectangle(final double width, final double height) {
         this.width = width;
         this.height = height;
-        this.edgeCount = 4;
     }
 
     public double getWidth() {
@@ -20,7 +19,7 @@ public class Rectangle implements it.unibo.shapes.api.Polygon {
     }
 
     public int getEdgeCount() {
-        return this.edgeCount;
+        return this.EDGES;
     }
 
     public double getArea() {

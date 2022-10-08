@@ -3,12 +3,11 @@ package it.unibo.shapes.impl;
 public class Triangle implements it.unibo.shapes.api.Polygon {
     private final double base;
     private final double height;
-    private final int edgeCount;
+    private static final int EDGES = 3;
 
     public Triangle(final double base, final double height) {
         this.base = base;
         this.height = height;
-        this.edgeCount = 3;
     }
 
     public double getBase() {
@@ -20,7 +19,7 @@ public class Triangle implements it.unibo.shapes.api.Polygon {
     }
 
     public int getEdgeCount() {
-        return this.edgeCount;
+        return this.EDGES;
     }
 
     public double getArea() {

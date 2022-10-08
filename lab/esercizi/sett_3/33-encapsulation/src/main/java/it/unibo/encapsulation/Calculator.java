@@ -24,14 +24,6 @@ public class Calculator {
         return this.lastResult;
     }
 
-    public void setoperationsPerformed(final int ops) {
-        this.operationsPerformed = ops;
-    }
-
-    public void setlastResult(final double res) {
-        this.lastResult = res;
-    }
-
     public double add(final double n1, final double n2) {
         return updateStatus(n1 + n2);
     }
