@@ -23,9 +23,10 @@
 hs_err_pid*
 replay_pid*
 
+# gradle build files
 .gradle
 **/build/
-!src/**/build/
+!**/src/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -56,3 +57,7 @@ gradle-app.setting
 # Built Visual Studio Code Extensions
 *.vsix
 vscode_ws/
+
+# Default exercises structure
+**/gradle
+**/gradlew*
