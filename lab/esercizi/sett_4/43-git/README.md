@@ -5,23 +5,53 @@ si annoti in questo file il comando utilizzato ed il suo output,
 per confrontarlo con le soluzioni.
 
 ### Si crei una nuova directory
-
+mkdir foo
 ### Si inizializzi un repository Git dentro la cartella suddetta.
-
+cd foo && git init 
 ### Si osservi lo stato del repository
-
+git status
 ### Si scriva un file `HelloWorld.java` contenente un `main` con una stampa a video e si osservi il contenuto del repository
+touch HelloWorld.java
+$EDITOR HelloWorld.java
+ls -lah
+Size User     Date Modified Name
+   - aleemont 13 Oct 17:07   .
+   - aleemont 13 Oct 14:29   ..
+   - aleemont 13 Oct 17:07   .git
+   - aleemont 13 Oct 17:10   foo
+2.2k aleemont 13 Oct 17:09   README.md
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+       ./
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
 
 ### Si aggiunga `HelloWorld.java` allo stage, e si osservi lo stato del repository
+git add HelloWorld.java
+git status
 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   HelloWorld.java
 ### Si crei il primo commit, con messaggio ragionevole. Se necessario, si configuri nome utente ed email di git usando i dati dell'account istituzionale.
-
+git commit -m "created HelloWorld.java"
+[43-git 8228c6c] created HelloWorld.java
+ 1 file changed, 5 insertions(+)
+ create mode 100644 lab/esercizi/sett_4/43-git/foo/HelloWorld.java
 ### Si compili il file Java e si verifichi lo stato del repository
-
+javac HelloWorld.java
 ### Si noti che c'è un file rigenerabile (`HelloWorld.class`). Si costruisca una lista di file ignorati che ignori tutti i file con estensione `.class`
-
+touch .gitignore && echo "*.class" >> .gitignore
 ### Si osservi lo stato del repository
-
+git status
 ### Si crei un nuovo commit che tracci il la ignore list, aggiungendo allo stage i file necessari. Si osservi sempre lo stato del repository dopo l'esecuzione di un comando
 
 ### Si gestiscano i caratteri di fine linea in modo appropriato, creando un file `.gitattributes`
