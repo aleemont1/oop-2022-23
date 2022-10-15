@@ -8,9 +8,8 @@ public class BasicArm {
 
     public BasicArm(String name) {
         this.name = name;
-        this.carriedItems = 0;
     }
-    boolean isGrabbing() {
+    public boolean isGrabbing() {
         return grabbing;
     }
 
