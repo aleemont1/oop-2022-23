@@ -4,23 +4,26 @@ import it.unibo.design.robot.api.RobotWithArms;
 
 public class RobotWithTwoArms extends BaseRobot implements RobotWithArms {
 
-    private BasicArm leftArm;
-    private BasicArm rightArm;
-
+    public static final double TRANSPORT_CONSUMPTION = 0.1;
+    private final BasicArm leftArm;
+    private final BasicArm rightArm;
+    
     public RobotWithTwoArms(final String name) {
         super(name);
         leftArm = new BasicArm("Left Arm");
         rightArm = new BasicArm("Right Arm");
     }
-
+    protected double getBatteryRequirementForMovement() {
+        return super.getBatteryRequirementForMovement() + this.getCarriedItemsCount() * RobotWithTwoArms.TRANSPORT_CONSUMPTION;
+    }
     public boolean pickUp() {
         if(leftArm.isGrabbing()) {
             if(rightArm.isGrabbing()) {
                 return false;
             }           
-            grab(leftArm);
-        } else {
             grab(rightArm);
+        } else {
+            grab(leftArm);
         }
 
         return true;
@@ -40,12 +43,12 @@ public class RobotWithTwoArms extends BaseRobot implements RobotWithArms {
 
     private void grab(final BasicArm arm) {
         if(super.isBatteryEnough(arm.getConsumptionForPickUp()) && !arm.isGrabbing()) {
-            log(arm + "Picking up");
+            log(arm + " Picking up");
             arm.pickUp();
             super.consumeBattery(arm.getConsumptionForPickUp());
         } else {
-            log(arm + "Can't pick up (Battery: " + super.getBatteryLevel() + "), isGrabbing: "
-                     + arm.isGrabbing());
+            log(arm + " Can't pick up (Battery: " + this.getBatteryLevel() + "), "+arm+" grabbing: "+
+                     arm.isGrabbing());
         }
     }
 
