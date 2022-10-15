@@ -33,14 +33,6 @@ public abstract class AbstractPart implements RobotPart {
         return isConnected() && robot.equals(r);
     }
 
-    public boolean activate() {
-        if (isConnected() && !isOn()) {
-            isOn = true;
-            return true;
-        }
-        return false;
-    }
-
     public String getName() {
         return desc;
     }
@@ -49,21 +41,23 @@ public abstract class AbstractPart implements RobotPart {
         return robot;
     }
 
-    public void connect(final ComposableRobot r) {
+    public final void connect(final ComposableRobot r) {
         disconnect();
-        robot = (ComposableRobot) r;
+        robot = r;
     }
 
-    public void disconnect() {
+    public final void disconnect() {
         turnOff();
         robot = null;
     }
 
-    public void turnOn() {
+    public final void turnOn() {
         isOn = true;
     }
 
-    public void turnOff() {
+    public final void turnOff() {
         isOn = false;
     }
+
+    public abstract String toString();
 }

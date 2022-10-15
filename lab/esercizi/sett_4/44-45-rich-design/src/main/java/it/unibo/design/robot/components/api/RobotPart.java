@@ -1,6 +1,7 @@
 package it.unibo.design.robot.components.api;
 
 import it.unibo.design.robot.api.Robot;
+import it.unibo.design.robot.impl.ComposableRobot;
 
 public interface RobotPart {
 
@@ -11,7 +12,7 @@ public interface RobotPart {
     boolean activate();
     String getName();
 
-    void connect(Robot r);
+    void connect(ComposableRobot r);
     void disconnect();
     void turnOn();
     void turnOff();
