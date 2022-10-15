@@ -1,4 +1,4 @@
-package it.unibo.design.robot.api;
+package it.unibo.design.robot.impl;
 
 public class BasicArm {
     private static final double MOVE_CONSUMPTION = 0.2;
