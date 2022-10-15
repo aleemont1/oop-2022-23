@@ -2,7 +2,6 @@ package it.unibo.design.robot.components.impl;
 
 import java.util.Arrays;
 
-import it.unibo.design.robot.components.api.RobotPart;
 public abstract class AbstractPartWithCommands extends AbstractPart {
 
     protected static final String NULL_CMD = "Command is null";

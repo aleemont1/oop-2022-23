@@ -21,11 +21,11 @@ public abstract class AbstractPart implements RobotPart {
         return consumption;
     }
 
-    public boolean isOn() {
+    public final boolean isOn() {
         return isOn;
     }
 
-    public boolean isConnected() {
+    public final boolean isConnected() {
         return robot != null;
     }
 
