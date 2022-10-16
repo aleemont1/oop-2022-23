@@ -10,10 +10,6 @@ public class RobotArm extends AbstractPartWithCommands {
         super(name, CONSUMPTION, new String[] { PICK, DROP });
     }
 
-    private boolean isCarrying(AbstractPart arm) {
-        if(arm instanceof RobotArm) {
-        }
-    }
     @Override
     public boolean activate(final String command) {
         if(RobotArm.PICK.equals(command)) {
@@ -42,6 +38,10 @@ public class RobotArm extends AbstractPartWithCommands {
         return "Robot Arm";
     }
 
-}
-    
+    @Override
+    public boolean activate() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }
