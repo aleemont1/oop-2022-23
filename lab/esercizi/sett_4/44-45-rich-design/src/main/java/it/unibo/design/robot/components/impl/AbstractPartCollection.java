@@ -4,43 +4,38 @@ import it.unibo.design.robot.components.api.RobotPart;
 import it.unibo.design.robot.components.api.RobotPartCollection;
 
 public abstract class AbstractPartCollection implements RobotPartCollection {
-
-    private RobotPart[] parts;
+        
     private int index;
 
-    public AbstractPartCollection(final RobotPart[] parts) {
-        this.parts = parts;
-        this.index = 0;
-    }
+    protected abstract int getNumberOfParts();
+    protected abstract RobotPart getPart(int i);
+    protected abstract void removePart(int i);
 
-    public void connectPart(final RobotPart p) {
-        for (int i = 0; i < parts.length; i++) {
-            if (parts[i] == null) {
-                parts[i] = p;
-                return;
-            }
-        }
-    }
-
-    public void resetIterator() {
+    @Override
+    public final void resetIterator() {
         index = 0;
     }
 
-    public boolean hasNext() {
-        return index < parts.length;
+    @Override
+    public final boolean hasNext() {
+        return index < getNumberOfParts();
     }
 
-    public RobotPart next() {
-        return parts[index++];
+    @Override
+    public final RobotPart next() {
+        if(hasNext()) {
+            return getPart(index++);
+        }
+        return null;
     }
 
-    public void disconnect(final RobotPart p) {
-        for (int i = 0; i < parts.length; i++) {
-            if (parts[i] == p) {
-                parts[i] = null;
+    @Override
+    public final void disconnect(RobotPart p) {
+        for (int i = 0; i < getNumberOfParts(); i++) {
+            if (getPart(i) == p) {
+                removePart(i);
                 return;
             }
         }
     }
-
 }
