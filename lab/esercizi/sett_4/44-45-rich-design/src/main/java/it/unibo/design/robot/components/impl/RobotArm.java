@@ -37,11 +37,4 @@ public class RobotArm extends AbstractPartWithCommands {
     public String toString() {
         return "Robot Arm";
     }
-
-    @Override
-    public boolean activate() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
 }

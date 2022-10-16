@@ -18,7 +18,7 @@ public abstract class AbstractPartWithCommands extends AbstractPart {
         return Arrays.copyOf(commands, commands.length);
     }
 
-    public boolean doOperation() {
+    public boolean activate() {
         if (super.isConnected() && super.isOn()) {
             return activate(selectedCommand);
         }
