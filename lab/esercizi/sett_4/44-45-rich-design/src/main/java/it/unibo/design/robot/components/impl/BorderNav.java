@@ -10,7 +10,7 @@ public class BorderNav extends AbstractPart  {
     private static final int WEST = 3;
     private static final int AVAILABLE_DIRS = 4;
     private int currentDir;
-    
+
     public BorderNav() {
         super("BorderNav", BaseRobot.MOVEMENT_DELTA_CONSUMPTION);
     }
@@ -35,6 +35,7 @@ public class BorderNav extends AbstractPart  {
                 return false;
         }
     }
+    
     @Override  
     public boolean activate() {
         if(isOn() && isConnected()) {
