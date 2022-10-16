@@ -10,14 +10,15 @@ public class BorderNav extends AbstractPart  {
     private static final int WEST = 3;
     private static final int AVAILABLE_DIRS = 4;
     private int currentDir;
+    
     public BorderNav() {
         super("BorderNav", BaseRobot.MOVEMENT_DELTA_CONSUMPTION);
     }
 
+    @Override
     public String toString() {
         return "BorderNav";
     }
-
 
     private boolean move() {
         switch(currentDir % AVAILABLE_DIRS) {
@@ -36,6 +37,15 @@ public class BorderNav extends AbstractPart  {
     }
     @Override  
     public boolean activate() {
-        return true;
+        if(isOn() && isConnected()) {
+            while(!move()) {
+                currentDir++;
+                if(currentDir > AVAILABLE_DIRS) {
+                    currentDir = 0;
+                }
+            }
+            return true;
+        }
+            return false;
     }
 }
