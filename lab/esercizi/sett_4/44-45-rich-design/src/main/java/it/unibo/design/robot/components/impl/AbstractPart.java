@@ -1,8 +1,7 @@
 package it.unibo.design.robot.components.impl;
 
-
+import it.unibo.design.robot.components.api.ComposableRobot;
 import it.unibo.design.robot.api.Robot;
-import it.unibo.design.robot.impl.ComposableRobot;
 import it.unibo.design.robot.components.api.RobotPart;
 
 public abstract class AbstractPart implements RobotPart {

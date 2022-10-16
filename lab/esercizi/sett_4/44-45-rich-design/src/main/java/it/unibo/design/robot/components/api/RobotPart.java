@@ -1,7 +1,6 @@
 package it.unibo.design.robot.components.api;
 
 import it.unibo.design.robot.api.Robot;
-import it.unibo.design.robot.impl.ComposableRobot;
 
 public interface RobotPart {
 

@@ -10,10 +10,9 @@ public class AtomicBattery extends AbstractPart {
         return "Atomic Battery";
     }
 
-    @Override
     public boolean activate() {
         if(isOn() && isConnected()) {
-            getRobot().recharge();
+            super.getRobot().recharge();
             System.out.println(this + " charged the battery to" + getRobot().getBatteryLevel());
             return true;
         }
