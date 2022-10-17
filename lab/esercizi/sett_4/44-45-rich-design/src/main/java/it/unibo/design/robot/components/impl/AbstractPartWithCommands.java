@@ -1,15 +1,18 @@
 package it.unibo.design.robot.components.impl;
 
+import it.unibo.design.robot.components.api.RobotPartWithCommands;
 import java.util.Arrays;
 
-public abstract class AbstractPartWithCommands extends AbstractPart {
+public abstract class AbstractPartWithCommands extends AbstractPart implements RobotPartWithCommands {
 
     protected static final String NULL_CMD = "Command is null";
 
     private final String[] commands;
     private String selectedCommand = NULL_CMD;
 
-    public AbstractPartWithCommands(final String desc, final double consumption, final String[] commands) {
+    protected abstract boolean activate(final String command);
+
+    protected AbstractPartWithCommands(final String desc, final double consumption, final String... commands) {
         super(desc, consumption);
         this.commands = Arrays.copyOf(commands, commands.length);
     }
@@ -25,10 +28,8 @@ public abstract class AbstractPartWithCommands extends AbstractPart {
         return false;
     }
 
-    protected abstract boolean activate(final String command);
-
     public void sendCommand(final String command) {
-        for(final String selected : commands) {
+        for (final String selected : commands) {
             if (selected.equals(command)) {
                 selectedCommand = selected;
                 return;

@@ -6,11 +6,11 @@ public class RobotArm extends AbstractPartWithCommands {
     protected static final String PICK = "Pick";
     protected static final String DROP = "Drop";
     private boolean grabbing;
+
     public RobotArm(final String name) {
-        super(name, CONSUMPTION, new String[] { PICK, DROP });
+        super(name, CONSUMPTION, PICK, DROP);
     }
 
-    @Override
     public boolean activate(final String command) {
         if(RobotArm.PICK.equals(command)) {
             if(this.grabbing) {
@@ -33,7 +33,6 @@ public class RobotArm extends AbstractPartWithCommands {
         return false;
     }
 
-    @Override
     public String toString() {
         return "Robot Arm";
     }

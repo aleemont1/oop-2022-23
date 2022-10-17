@@ -32,7 +32,7 @@ public class PartCollection extends AbstractPartCollection {
         parts[index++] = p;
     }
 
-    protected void removePart(final int i) {
+    public void removePart(final int i) {
         index--;
         if(index < getNumberOfParts() / 2) {
             shrink();
@@ -45,11 +45,11 @@ public class PartCollection extends AbstractPartCollection {
         parts[index] = null;
     }
 
-    protected int getNumberOfParts() {
+    public int getNumberOfParts() {
         return index;
     }
 
-    protected RobotPart getPart(final int i) {
+    public RobotPart getPart(final int i) {
         return parts[i];
     }
 }

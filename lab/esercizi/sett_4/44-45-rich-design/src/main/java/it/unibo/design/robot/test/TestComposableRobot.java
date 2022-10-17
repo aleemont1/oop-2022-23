@@ -1,9 +1,13 @@
 package it.unibo.design.robot.test;
 
+import it.unibo.design.robot.components.api.ComposableRobot;
 import it.unibo.design.robot.components.api.RobotPart;
-import it.unibo.design.robot.components.api.RobotPartCollection;
+import it.unibo.design.robot.components.impl.AtomicBattery;
+import it.unibo.design.robot.components.impl.BorderNav;
 import it.unibo.design.robot.components.impl.PartCollection;
-import it.unibo.design.robot.components.*;
+import it.unibo.design.robot.components.impl.RobotArm;
+import it.unibo.design.robot.impl.SimpleComposableRobot;
+
 /**
  * Utility class for testing composable robots
  */
@@ -11,50 +15,56 @@ public final class TestComposableRobot {
 
     private static final int CYCLES = 200;
 
-    private TestComposableRobot() { }
+    private TestComposableRobot() {
+    }
 
     public static void main(final String[] args) {
-        /*
-         Uncomment the method parts by moving the comment-ending token */
-        final ComposableRobot r0 = new SimpleComposableRobot("Evangelion Unit 01");
-        final RobotPart navi = new BorderNavigator();
+        final PartCollection parts = new PartCollection(PartCollection.DEFAULT_SIZE);
+        final ComposableRobot robot = new SimpleComposableRobot("r2d2");
         final RobotPart battery = new AtomicBattery();
-        final RobotArm arm1 = new RobotArm();
-        final RobotArm arm2 = new RobotArm();
-        
-        /*
-          Component connection*/
-        r0.connectPart(navi);
-        r0.connectPart(battery);
-        r0.connectPart(arm1);
-        r0.connectPart(arm2);
-         
-        /*
-         Turn on components*/
-        navi.turnOn();
-        arm1.turnOn();
-        arm2.turnOn();
-        
-        /*
-         Run some cycles*/
-        for (int i = 0; i < CYCLES; i++) {
-            if (r0.getBatteryLevel() < BaseRobot.BATTERY_FULL / 2) {
-                battery.turnOn();
+        final RobotPart borderNav = new BorderNav();
+        final RobotPart leftArm = new RobotArm("LeftArm");
+        final RobotPart RightArm = new RobotArm("RightArm");
+        parts.connectPart(battery);
+        parts.connectPart(borderNav);
+        parts.connectPart(leftArm);
+        parts.connectPart(RightArm);
+
+        for (int i = 0; i < parts.getNumberOfParts(); i++) {
+            robot.connectPart(parts.getPart(i));
+            if (parts.getPart(i).isConnectedTo(robot)) {
+                System.out.println(parts.getPart(i) + " Connected to " + robot);
             } else {
-                battery.turnOff();
+                System.out.println(parts.getPart(i) + " didn't connect to" + robot);
             }
-            arm1.sendCommand(arm1.getCommands()[i % arm1.getCommands().length]);
-            arm2.sendCommand(arm2.getCommands()[i % arm2.getCommands().length]);
-            r0.doCycle();
         }
-         
-        /*
-         Detach components */
-        r0.detachComponent(arm1);
-        r0.detachComponent(arm2);
-        /*
-         * Test if it runs anyway */
-        r0.doCycle();
-        r0.doCycle();
+
+        for (int i = 0; i < CYCLES; i++) {
+            parts.getPart(i % parts.getNumberOfParts()).turnOn();
+            if (parts.getPart(i).isOn()) {
+                System.out.println("[" + robot + "]" + parts.getPart(i) + "turnedOn");
+            } else {
+                System.out.println("[ERROR], " + parts.getPart(i) + " turnOn() check is false");
+            }
+            if (parts.getPart(i % parts.getNumberOfParts()).activate()) {
+                System.out.println("[" + robot + "]" + parts.getPart(i) + " Correctly activated");
+            } else {
+                System.out.println("[ERROR], " + parts.getPart(i) + ": activate() returned false");
+            }
+            parts.getPart(i % parts.getNumberOfParts()).turnOff();
+            if (!parts.getPart(i).isOn()) {
+                System.out.println("[" + robot + "] " + parts.getPart(i) + " turnedOff");
+            } else {
+                System.out.println("[ERROR], " + parts.getPart(i) + ": turnOff() check is false");
+            }
+        }
+        for (int i = 0; i < parts.getNumberOfParts(); i++) {
+            parts.disconnect(parts.getPart(i));
+            if (!parts.getPart(i).isConnectedTo(robot)) {
+            System.out.println(parts.getPart(i) + "Correctly disconnected from " + robot);
+            } else {
+                System.out.println("[ERROR]" + parts.getPart(i) + "didn't disconnected from " + robot);
+            }
+        }
     }
 }

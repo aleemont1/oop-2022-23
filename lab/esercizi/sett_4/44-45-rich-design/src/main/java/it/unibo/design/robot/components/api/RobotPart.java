@@ -5,7 +5,7 @@ public interface RobotPart {
     double getConsumption();
     boolean isOn();
     boolean isConnected();
-    boolean isConnectedTo(it.unibo.design.robot.api.Robot r);
+    boolean isConnectedTo(ComposableRobot r);
     boolean activate();
     String getName();
 

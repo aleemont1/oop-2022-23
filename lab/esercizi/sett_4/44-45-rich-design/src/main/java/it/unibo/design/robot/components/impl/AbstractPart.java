@@ -28,16 +28,13 @@ public abstract class AbstractPart implements RobotPart {
         return robot != null;
     }
 
-    public boolean isConnectedTo(final Robot r) {
+    @Override
+    public boolean isConnectedTo(final ComposableRobot r) {
         return isConnected() && robot.equals(r);
     }
 
     public String getName() {
         return desc;
-    }
-
-    protected final ComposableRobot getRobot() {
-        return robot;
     }
 
     public final void connect(final ComposableRobot r) {
@@ -59,4 +56,8 @@ public abstract class AbstractPart implements RobotPart {
     }
 
     public abstract String toString();
+
+    protected final ComposableRobot getRobot() {
+        return robot;
+    }
 }

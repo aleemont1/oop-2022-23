@@ -7,9 +7,9 @@ public abstract class AbstractPartCollection implements RobotPartCollection {
         
     private int index;
 
-    protected abstract int getNumberOfParts();
-    protected abstract RobotPart getPart(int i);
-    protected abstract void removePart(int i);
+    public abstract int getNumberOfParts();
+    public abstract RobotPart getPart(int i);
+    public abstract void removePart(int i);
 
     @Override
     public final void resetIterator() {
