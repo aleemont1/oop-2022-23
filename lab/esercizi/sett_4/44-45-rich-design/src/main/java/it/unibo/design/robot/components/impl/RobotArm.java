@@ -12,6 +12,7 @@ public class RobotArm extends AbstractPartWithCommands {
     }
 
     public boolean activate(final String command) {
+        System.out.println(this + " Received command: " + command);
         if(RobotArm.PICK.equals(command)) {
             if(this.grabbing) {
                 System.out.println(this + "Already grabbing");
@@ -31,6 +32,16 @@ public class RobotArm extends AbstractPartWithCommands {
         }
         System.out.println("Unknown command: " + command);
         return false;
+    }
+
+    public boolean activate() {
+        System.out.println(this + " Received command: ");
+            if(this.grabbing) {
+                grabbing = false;
+                return true;
+            }
+            grabbing = true;
+            return true;
     }
 
     public String toString() {

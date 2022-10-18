@@ -1,5 +1,7 @@
 package it.unibo.design.robot.impl;
 
+import java.lang.reflect.Array;
+
 import it.unibo.design.robot.components.api.ComposableRobot;
 import it.unibo.design.robot.components.api.RobotPart;
 import it.unibo.design.robot.components.api.RobotPartCollection;
@@ -15,11 +17,9 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot 
     }
 
     public final void connectPart(final RobotPart p) {
-        if(p != null) {
+        if(p != null && !p.isConnectedTo(this)) {
             parts.connectPart(p);
-        }
-        if(p.isConnectedTo(this)) {
-            parts.connectPart(p);
+            p.connect(this);
         }
     }
 
@@ -47,7 +47,7 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot 
                     log("Not connected " + p.getName());
                 }
             } else {
-                log("Not activated " + p.getName());
+                log("Didn't turn on " + p.getName());
             }
         }
     }
