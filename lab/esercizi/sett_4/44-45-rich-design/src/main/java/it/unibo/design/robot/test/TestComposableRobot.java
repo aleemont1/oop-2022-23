@@ -27,27 +27,47 @@ public final class TestComposableRobot {
         final RobotArm rightArm = new RobotArm("RightArm");
 
         robot.connectPart(battery);
-            if(!battery.isConnectedTo(robot)) {
-                System.out.println("Battery not connected");
+        if (!battery.isConnectedTo(robot)) {
+            System.out.println("Battery not connected");
+        } else {
+            battery.turnOn();
+            if (!battery.isOn()) {
+                System.out.println("Battery not turned on");
             }
+        }
         robot.connectPart(borderNav);
-            if(!borderNav.isConnectedTo(robot)) {
-                System.out.println("BorderNav not connected");
+        if (!borderNav.isConnectedTo(robot)) {
+            System.out.println("BorderNav not connected");
+        } else {
+            borderNav.turnOn();
+            if (!borderNav.isOn()) {
+                System.out.println("BorderNav not turned on");
             }
+        }
         robot.connectPart(leftArm);
-            if(!leftArm.isConnectedTo(robot)) {
-                System.out.println("LeftArm not connected");
+        if (!leftArm.isConnectedTo(robot)) {
+            System.out.println("LeftArm not connected");
+        } else {
+            leftArm.turnOn();
+            if (!leftArm.isOn()) {
+                System.out.println("LeftArm not turned on");
             }
+        }
         robot.connectPart(rightArm);
-            if(!rightArm.isConnectedTo(robot)) {
-                System.out.println("RightArm not connected");
+        if (!rightArm.isConnectedTo(robot)) {
+            System.out.println("RightArm not connected");
+        } else {
+            rightArm.turnOn();
+            if (!rightArm.isOn()) {
+                System.out.println("RightArm not turned on");
             }
+        }
 
         for (int i = 0; i < CYCLES; i++) {
             if (robot.getBatteryLevel() < BaseRobot.BATTERY_FULL / 2) {
                 battery.turnOn();
             } else {
-            battery.turnOff();
+                battery.turnOff();
             }
             leftArm.sendCommand(leftArm.getCommands()[i % leftArm.getCommands().length]);
             rightArm.sendCommand(rightArm.getCommands()[i % rightArm.getCommands().length]);

@@ -34,17 +34,7 @@ public class RobotArm extends AbstractPartWithCommands {
         return false;
     }
 
-    public boolean activate() {
-        System.out.println(this + " Received command: ");
-            if(this.grabbing) {
-                grabbing = false;
-                return true;
-            }
-            grabbing = true;
-            return true;
-    }
-
     public String toString() {
-        return "Robot Arm";
+        return super.getName();
     }
 }
