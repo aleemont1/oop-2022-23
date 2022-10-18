@@ -32,6 +32,7 @@ public abstract class AbstractPartWithCommands extends AbstractPart implements R
         for (final String selected : commands) {
             if (selected.equals(command)) {
                 selectedCommand = selected;
+                activate();
                 return;
             }
         }
