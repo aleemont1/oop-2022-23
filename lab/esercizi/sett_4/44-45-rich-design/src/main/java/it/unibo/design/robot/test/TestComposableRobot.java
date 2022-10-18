@@ -69,8 +69,10 @@ public final class TestComposableRobot {
             } else {
                 battery.turnOff();
             }
-            leftArm.sendCommand(leftArm.getCommands()[i % leftArm.getCommands().length]);
-            rightArm.sendCommand(rightArm.getCommands()[i % rightArm.getCommands().length]);
+            for (int j = 0; j < CYCLES; j++) {
+                leftArm.sendCommand(leftArm.getCommands()[j % leftArm.getCommands().length]);
+                rightArm.sendCommand(rightArm.getCommands()[j % rightArm.getCommands().length]);
+            }
             robot.doCycle();
         }
     }
