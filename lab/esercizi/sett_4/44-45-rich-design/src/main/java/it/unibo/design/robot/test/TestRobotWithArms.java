@@ -1,7 +1,5 @@
 package it.unibo.design.robot.test;
 
-import static it.unibo.design.robot.test.Assertions.assertEquals;
-
 /**
  * Utility class for testing componible robots
  * 
@@ -9,9 +7,9 @@ import static it.unibo.design.robot.test.Assertions.assertEquals;
 public final class TestRobotWithArms {
 
     // Tolerance for double comparisons, to account for floating-point rounding errors  
-    private static final double EPSILON = 1e-7;
+   // private static final double EPSILON = 1e-7;
 
-    private static final int CYCLES = 10;
+    // private static final int CYCLES = 10;
 
     private TestRobotWithArms() {
     }

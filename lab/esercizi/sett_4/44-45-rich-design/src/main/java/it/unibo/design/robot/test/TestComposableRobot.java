@@ -2,6 +2,7 @@ package it.unibo.design.robot.test;
 
 import it.unibo.design.robot.components.api.ComposableRobot;
 import it.unibo.design.robot.components.api.RobotPart;
+import it.unibo.design.robot.components.api.RobotPartWithCommands;
 import it.unibo.design.robot.components.impl.AtomicBattery;
 import it.unibo.design.robot.components.impl.BorderNav;
 import it.unibo.design.robot.components.impl.PartCollection;
@@ -23,8 +24,8 @@ public final class TestComposableRobot {
         final ComposableRobot robot = new SimpleComposableRobot("r2d2");
         final RobotPart battery = new AtomicBattery();
         final RobotPart borderNav = new BorderNav();
-        final RobotArm leftArm = new RobotArm("LeftArm");
-        final RobotArm rightArm = new RobotArm("RightArm");
+        final RobotPartWithCommands leftArm = new RobotArm("LeftArm");
+        final RobotPartWithCommands rightArm = new RobotArm("RightArm");
 
         robot.connectPart(battery);
         if (!battery.isConnectedTo(robot)) {

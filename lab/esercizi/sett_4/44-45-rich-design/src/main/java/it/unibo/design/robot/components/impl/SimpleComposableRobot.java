@@ -10,7 +10,7 @@ import it.unibo.design.robot.impl.BaseRobot;
 
 public class SimpleComposableRobot extends BaseRobot implements ComposableRobot {
     
-    private final RobotPartCollection parts = new PartCollection(3);
+    private final RobotPartCollection parts = new PartCollection(1);
 
     public SimpleComposableRobot(final String name) {
         super(name);
