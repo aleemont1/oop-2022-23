@@ -165,11 +165,15 @@ You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
 state without impacting any branches by switching back to a branch.
 ### Si crei un nuovo branch di nome `experiment` e si agganci la `HEAD` al nuovo branch
-
+git branch -m experiment
+git checkout experiment
 ### Si crei un file README.md con contenuto a piacere, e si faccia un commit che lo includa
+touch README.md
+git add README.md
+git commit -m "Created README.md"
 
 ### Si torni sul branch master e si elenchino i branch disponibili
-
+git checkout main
 ### Si unisca il branch experiment al branch master (si faccia un merge in cui experiment viene messo dentro master, e non viceversa)
-
+git merge experiment
 ### Si osservi la storia del repository
