@@ -4,3 +4,8 @@
 [submodule "lab/esercizi/lab07"]
 	path = lab/esercizi/lab07
 	url = https://github.com/aleemont1/lab07
+[submodule "lab/esercizi/lab08"]
+	path = lab/esercizi/lab08
+	url = https://github.com/unibo-oop/lab08
+[submodule "lab08"]
+	url = https://github.com/aleemont1/lab08
